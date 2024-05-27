@@ -12,3 +12,17 @@ export const Input = ({ name, id, className, type, value, onChange }) => {
     </>
   );
 };
+
+export const TextArea = ({ name, id, className, value, onChange }) => {
+  return (
+    <>
+      <textarea
+        name={name}
+        id={id}
+        className={className}
+        value={value}
+        onChange={onChange}
+      ></textarea>
+    </>
+  );
+};
