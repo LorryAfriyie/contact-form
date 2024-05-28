@@ -5,10 +5,7 @@
 @import "button";
 
 // Font
-@font-face {
-  font-family: "Karla";
-  src: url("/fonts/Karla-VariableFont_wght.ttf");
-}
+@import url("https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&display=swap");
 
 * {
   box-sizing: border-box;
