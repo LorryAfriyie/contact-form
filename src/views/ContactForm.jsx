@@ -1,6 +1,8 @@
 import { Input, TextArea } from "../components/input";
 import { Button } from "../components/button";
-import { useState } from "react";
+import { checkInputs } from "../utilities/validation";
+import { Modal } from "../components/modal";
+import { useState, useRef } from "react";
 
 export const ContactForm = () => {
   const [data, setData] = useState({
@@ -10,6 +12,13 @@ export const ContactForm = () => {
     message: "",
   });
 
+  // useRef Hooks
+  const firstName = useRef(null),
+    lastName = useRef(null),
+    email = useRef(null),
+    message = useRef(null),
+    consent = useRef(null);
+
   const handleInputChange = (e) => {
     const { name, value } = e.target;
 
@@ -18,7 +27,10 @@ export const ContactForm = () => {
 
   const formSubmit = (e) => {
     e.preventDefault();
-    alert(
+
+    checkInputs(firstName, lastName, email, message);
+
+    /* alert(
       data.first_name +
         " " +
         data.last_name +
@@ -26,23 +38,24 @@ export const ContactForm = () => {
         data.email +
         " " +
         data.message,
-    );
+    ); */
   };
 
   return (
     <main className="contact-form">
-      <h2 className="heading">Contact Us</h2>
-
       <form
-        action=""
         className="form"
         id="form"
         name="form"
         noValidate
         onSubmit={formSubmit}
       >
+        <h2 className="heading">Contact Us</h2>
+
         <div className="form-control">
-          <label htmlFor="first_name">First Name</label>
+          <label htmlFor="first_name" className="text-input">
+            First Name
+          </label>
           <Input
             type={"text"}
             id={"first_name"}
@@ -50,11 +63,14 @@ export const ContactForm = () => {
             name={"first_name"}
             value={data.first_name}
             onChange={handleInputChange}
+            ref={firstName}
           />
         </div>
 
         <div className="form-control">
-          <label htmlFor="last_name">Last Name</label>
+          <label htmlFor="last_name" className="text-input">
+            Last Name
+          </label>
           <Input
             type={"text"}
             id={"last_name"}
@@ -62,11 +78,14 @@ export const ContactForm = () => {
             name={"last_name"}
             value={data.last_name}
             onChange={handleInputChange}
+            ref={lastName}
           />
         </div>
 
         <div className="form-control">
-          <label htmlFor="email">Email</label>
+          <label htmlFor="email" className="text-input">
+            Email
+          </label>
           <Input
             type={"text"}
             id={"email"}
@@ -74,6 +93,7 @@ export const ContactForm = () => {
             name={"email"}
             value={data.email}
             onChange={handleInputChange}
+            ref={email}
           />
         </div>
 
@@ -98,22 +118,30 @@ export const ContactForm = () => {
         </div> */}
 
         <div className="form-control">
-          <label htmlFor="message">Message</label>
+          <label htmlFor="message" className="text-input">
+            Message
+          </label>
           <TextArea
             id={"message"}
             className={"message"}
             name={"message"}
             value={data.message}
             onChange={handleInputChange}
+            ref={message}
           />
         </div>
 
-        {/* <div className="form-control">
-          <Input type={"checkbox"} id={"consent"} className={"consent"} />
+        <div className="form-control">
+          <Input
+            type={"checkbox"}
+            id={"consent"}
+            className={"consent"}
+            ref={consent}
+          />
           <label htmlFor="consent">
             I consent to being contacted by the team
           </label>
-        </div> */}
+        </div>
 
         <Button
           type={"submit"}
@@ -123,6 +151,8 @@ export const ContactForm = () => {
           className={"btn-submit"}
         />
       </form>
+
+      <Modal />
     </main>
   );
 };

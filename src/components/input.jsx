@@ -1,28 +1,38 @@
-export const Input = ({ name, id, className, type, value, onChange }) => {
-  return (
-    <>
-      <input
-        type={type}
-        name={name}
-        id={id}
-        className={className}
-        value={value}
-        onChange={onChange}
-      />
-    </>
-  );
-};
+import { forwardRef } from "react";
 
-export const TextArea = ({ name, id, className, value, onChange }) => {
-  return (
-    <>
-      <textarea
-        name={name}
-        id={id}
-        className={className}
-        value={value}
-        onChange={onChange}
-      ></textarea>
-    </>
-  );
-};
+// eslint-disable-next-line react/display-name
+export const Input = forwardRef(
+  ({ name, id, className, type, value, onChange }, ref) => {
+    return (
+      <>
+        <input
+          type={type}
+          name={name}
+          id={id}
+          className={className}
+          value={value}
+          onChange={onChange}
+          ref={ref}
+        />
+      </>
+    );
+  },
+);
+
+// eslint-disable-next-line react/display-name
+export const TextArea = forwardRef(
+  ({ name, id, className, value, onChange }, ref) => {
+    return (
+      <>
+        <textarea
+          name={name}
+          id={id}
+          className={className}
+          value={value}
+          onChange={onChange}
+          ref={ref}
+        ></textarea>
+      </>
+    );
+  },
+);

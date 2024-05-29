@@ -1,5 +1,31 @@
 .contact-form {
-  background-color: hsl(0, 0%, 100%);
-  border-radius: 10px;
-  padding: 1rem;
+  .form {
+    background-color: hsl(0, 0%, 100%);
+    border-radius: 10px;
+    padding: 1rem;
+
+    .form-control {
+      position: relative;
+      margin-bottom: 15px;
+
+      label[class="text-input"] {
+        display: block;
+        margin-bottom: 5px;
+      }
+    }
+
+    button {
+      display: block;
+      width: 100%;
+      border: none;
+      border-radius: 10px;
+      padding: 1rem;
+      background-color: hsl(169, 82%, 27%);
+      color: hsl(0, 0%, 100%);
+    }
+
+    button:hover {
+      background-color: hsl(187, 24%, 22%);
+    }
+  }
 }
