@@ -21,7 +21,7 @@ export const Input = forwardRef(
 
 // eslint-disable-next-line react/display-name
 export const TextArea = forwardRef(
-  ({ name, id, className, value, onChange }, ref) => {
+  ({ name, id, className, value, onChange, row, col }, ref) => {
     return (
       <>
         <textarea
@@ -31,6 +31,7 @@ export const TextArea = forwardRef(
           value={value}
           onChange={onChange}
           ref={ref}
+          rows={5}
         ></textarea>
       </>
     );

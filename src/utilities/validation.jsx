@@ -1,15 +1,17 @@
-export const checkInputs = (firstName, lastName, email, message) => {
-  if (firstName.current.value.trim() === "")
-    console.log("This field is required");
+import { setErrorBorder } from "./setBorder";
 
-  if (lastName.current.value.trim() === "")
-    console.log("This field is required");
+export const checkInputs = (input, errorMessage, label) => {
+  if (input === "firstName" && input.current.value.trim() === "")
+    setErrorBorder(input.current, errorMessage, label);
 
-  if (message.current.value.trim() === "")
-    console.log("This field is required");
+  if (input === "lastName" && input.current.value.trim() === "")
+    setErrorBorder(input.current, errorMessage, label);
 
-  if (!validateEmail(email.current.value.trim()))
-    console.log("Please enter a valid email address");
+  if (input === "message" && input.current.value.trim() === "")
+    setErrorBorder(input.current, errorMessage, label);
+
+  if (input === "email" && !validateEmail(input.current.value.trim()))
+    setErrorBorder(input.current, errorMessage, label);
 };
 
 function validateEmail(email) {

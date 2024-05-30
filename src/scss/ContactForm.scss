@@ -2,7 +2,13 @@
   .form {
     background-color: hsl(0, 0%, 100%);
     border-radius: 10px;
-    padding: 1rem;
+    padding: 2rem;
+
+    .personal-details {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+    }
 
     .form-control {
       position: relative;
@@ -10,8 +16,49 @@
 
       label[class="text-input"] {
         display: block;
-        margin-bottom: 5px;
+        margin-bottom: 10px;
       }
+
+      label[class="text-input"]::after,
+      label[class="check-input"]::after {
+        content: "*";
+        margin-left: 0.7rem;
+        color: hsl(169, 82%, 27%);
+      }
+    }
+
+    .error-message {
+      margin-top: 0.7rem;
+
+      .error {
+        color: hsl(0, 66%, 56%);
+      }
+    }
+
+    input[type="text"] {
+      width: 100%;
+      border-radius: 5px;
+      border: 1px solid #000;
+      outline: none;
+      height: 40px;
+      padding: 1rem;
+    }
+
+    textarea {
+      width: 100%;
+      border-radius: 5px;
+      border: 1px solid #000;
+      outline: none;
+      padding: 1rem;
+    }
+
+    input[type="text"]:focus,
+    textarea:focus {
+      border: 1px solid hsl(169, 82%, 27%);
+    }
+
+    input[type="checkbox"] {
+      margin-right: 1rem;
     }
 
     button {
