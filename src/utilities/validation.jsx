@@ -1,17 +1,27 @@
 import { setErrorBorder } from "./setBorder";
 
-export const checkInputs = (input, errorMessage, label) => {
-  if (input === "firstName" && input.current.value.trim() === "")
-    setErrorBorder(input.current, errorMessage, label);
+export const checkInputs = (
+  firstName,
+  lastName,
+  email,
+  message,
+  errMessage,
+) => {
+  if (firstName.current.value.trim() === "") {
+    console.log(errMessage);
+  }
 
-  if (input === "lastName" && input.current.value.trim() === "")
-    setErrorBorder(input.current, errorMessage, label);
+  if (lastName.current.value.trim() === "") {
+    console.log(errMessage);
+  }
 
-  if (input === "message" && input.current.value.trim() === "")
-    setErrorBorder(input.current, errorMessage, label);
+  if (message.current.value.trim() === "") {
+    console.log(errMessage);
+  }
 
-  if (input === "email" && !validateEmail(input.current.value.trim()))
-    setErrorBorder(input.current, errorMessage, label);
+  if (!validateEmail(email.current.value.trim())) {
+    console.log(errMessage);
+  }
 };
 
 function validateEmail(email) {

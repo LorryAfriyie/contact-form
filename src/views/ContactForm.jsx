@@ -25,12 +25,7 @@ export const ContactForm = () => {
     emailErr = useRef(null),
     messageErr = useRef(null);
 
-  const inputs = [
-    { item: firstName, label: firstNameErr, message: "This field is required" },
-    { item: lastName, label: firstNameErr, message: "This field is required" },
-    { item: email, label: firstNameErr, message: "This field is required" },
-    { item: message, label: firstNameErr, message: "This field is required" },
-  ];
+  const errorMessage = "This field is required";
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -41,7 +36,7 @@ export const ContactForm = () => {
   const formSubmit = (e) => {
     e.preventDefault();
 
-    inputs.map((x) => checkInputs(x.item, x.message, x.label));
+    checkInputs(firstName, lastName, email, message, errorMessage);
 
     /* alert(
       data.first_name +
@@ -143,25 +138,27 @@ export const ContactForm = () => {
           </div>
         </div>
 
-        {/*  <div className="form-control">
-          <Input
-            type={"radio"}
-            id={"general_enquiry"}
-            className={"general_enquiry"}
-            name={"radio"}
-          />
-          <label htmlFor="general_enquiry">General Enquiry</label>
-        </div>
+        <div className="radio-button">
+          <div className="form-control">
+            <Input
+              type={"radio"}
+              id={"general_enquiry"}
+              className={"general_enquiry"}
+              name={"radio"}
+            />
+            <label htmlFor="general_enquiry">General Enquiry</label>
+          </div>
 
-        <div className="form-control">
-          <Input
-            type={"radio"}
-            id={"support_request"}
-            className={"support_request"}
-            name={"radio"}
-          />
-          <label htmlFor="support_request">Support Request</label>
-        </div> */}
+          <div className="form-control">
+            <Input
+              type={"radio"}
+              id={"support_request"}
+              className={"support_request"}
+              name={"radio"}
+            />
+            <label htmlFor="support_request">Support Request</label>
+          </div>
+        </div>
 
         <div className="form-control">
           <label htmlFor="message" className="text-input">
