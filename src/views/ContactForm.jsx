@@ -52,7 +52,7 @@ export const ContactForm = () => {
   useEffect(() => {}, []);
 
   return (
-    <main className="contact-form">
+    <div className="contact-form">
       <form
         className="form"
         id="form"
@@ -209,6 +209,6 @@ export const ContactForm = () => {
       </form>
 
       <Modal />
-    </main>
+    </div>
   );
 };

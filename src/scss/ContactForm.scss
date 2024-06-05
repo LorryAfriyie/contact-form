@@ -1,19 +1,26 @@
+/* Styles belonging to the ContactForm component */
 .contact-form {
+
+  /* Form styles */
   .form {
     background-color: hsl(0, 0%, 100%);
     border-radius: 10px;
     padding: 2rem;
 
     .personal-details {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 1rem;
+      // Text box media query for mobile devices
+      @media (min-width: 40em) {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+      }
     }
 
     .form-control {
       position: relative;
       margin-bottom: 15px;
 
+      /* Label styles */
       label[class="text-input"] {
         display: block;
         margin-bottom: 10px;
@@ -27,6 +34,7 @@
       }
     }
 
+    /* Error message styles */
     .error-message {
       margin-top: 0.7rem;
 
@@ -35,15 +43,36 @@
       }
     }
 
+    /*  Radio button container styles */
     .radio-button {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
+      // Radio button media query for mobile
+      @media (min-width: 40em) {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+      }
 
+      // Radio button styles
       input[type="radio"] {
         margin-right: 1rem;
+        //display: none;
+      }
+
+      label,
+      input[type="radio"] {
+        cursor: pointer;
+      }
+
+      // Radio button label styles
+      .form-control {
+        position: relative;
+        border: 1px solid hsl(169, 82%, 27%);
+        border-radius: 5px;
+        padding: 10px 0 10px 30px;
       }
     }
 
+    /* Text and text area input styles  */
     input[type="text"] {
       width: 100%;
       border-radius: 5px;
@@ -66,10 +95,12 @@
       border: 1px solid hsl(169, 82%, 27%);
     }
 
+    /* Checkbox styles */
     input[type="checkbox"] {
       margin-right: 1rem;
     }
 
+    /* Button styles */
     button {
       display: block;
       width: 100%;
