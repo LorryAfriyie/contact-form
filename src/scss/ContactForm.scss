@@ -1,11 +1,21 @@
 /* Styles belonging to the ContactForm component */
 .contact-form {
+  // Placing form in the center of the page
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
   /* Form styles */
   .form {
     background-color: hsl(0, 0%, 100%);
     border-radius: 10px;
     padding: 2rem;
+    width: 100%;
+    max-width: 600px;
+
+    .heading {
+      margin-bottom: 2rem;
+    }
 
     .personal-details {
       // Text box media query for mobile devices
@@ -13,6 +23,48 @@
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         gap: 1rem;
+      }
+    }
+
+    /*  Radio button container styles */
+    .radio-container {
+      label[class="radio-input"] {
+        display: block;
+        margin-bottom: 10px;
+      }
+
+      label[class="radio-input"]::after {
+        content: "*";
+        margin-left: 0.7rem;
+        color: hsl(169, 82%, 27%);
+      }
+
+      .radio-button {
+        // Radio button media query for mobile
+        @media (min-width: 40em) {
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          gap: 1rem;
+        }
+
+        // Radio button styles
+        input[type="radio"] {
+          margin-right: 1rem;
+          //display: none;
+        }
+
+        label,
+        input[type="radio"] {
+          cursor: pointer;
+        }
+
+        // Radio button label styles
+        .form-control {
+          position: relative;
+          border: 1px solid hsl(186, 15%, 59%);
+          border-radius: 5px;
+          padding: 10px 0 10px 30px;
+        }
       }
     }
 
@@ -32,51 +84,22 @@
         margin-left: 0.7rem;
         color: hsl(169, 82%, 27%);
       }
-    }
 
-    /* Error message styles */
-    .error-message {
-      margin-top: 0.7rem;
-
-      .error {
-        color: hsl(0, 66%, 56%);
-      }
-    }
-
-    /*  Radio button container styles */
-    .radio-button {
-      // Radio button media query for mobile
-      @media (min-width: 40em) {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 1rem;
-      }
-
-      // Radio button styles
-      input[type="radio"] {
-        margin-right: 1rem;
-        //display: none;
-      }
-
-      label,
-      input[type="radio"] {
+      label[class="check-input"]:hover {
         cursor: pointer;
       }
+    }
 
-      // Radio button label styles
-      .form-control {
-        position: relative;
-        border: 1px solid hsl(169, 82%, 27%);
-        border-radius: 5px;
-        padding: 10px 0 10px 30px;
-      }
+    /* Error styles */
+    .error {
+      border: 1px solid hsl(0, 66%, 56%);
     }
 
     /* Text and text area input styles  */
     input[type="text"] {
       width: 100%;
       border-radius: 5px;
-      border: 1px solid #000;
+      border: 1px solid hsl(186, 15%, 59%);
       outline: none;
       height: 40px;
       padding: 1rem;
@@ -85,7 +108,7 @@
     textarea {
       width: 100%;
       border-radius: 5px;
-      border: 1px solid #000;
+      border: 1px solid hsl(186, 15%, 59%);
       outline: none;
       padding: 1rem;
     }
@@ -109,6 +132,7 @@
       padding: 1rem;
       background-color: hsl(169, 82%, 27%);
       color: hsl(0, 0%, 100%);
+      font-weight: 600;
     }
 
     button:hover {

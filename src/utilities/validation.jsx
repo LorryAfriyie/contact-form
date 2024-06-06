@@ -9,6 +9,7 @@ export const checkInputs = (
 ) => {
   if (firstName.current.value.trim() === "") {
     console.log(errMessage);
+    firstName.current.parentElement.className = 'form-control error'
   }
 
   if (lastName.current.value.trim() === "") {
