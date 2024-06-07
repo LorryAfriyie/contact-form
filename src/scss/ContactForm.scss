@@ -1,23 +1,23 @@
 /* Styles belonging to the ContactForm component */
 .contact-form {
-  // Placing form in the center of the page
   display: flex;
-  align-items: center;
-  justify-content: center;
+  width: 100%;
+  max-width: 1000px;
+  background-color: hsl(0, 0%, 100%);
+  border-radius: 10px;
+  padding: 2rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 
   /* Form styles */
   .form {
-    background-color: hsl(0, 0%, 100%);
-    border-radius: 10px;
-    padding: 2rem;
-    width: 100%;
-    max-width: 600px;
-
     .heading {
       margin-bottom: 2rem;
     }
 
     .personal-details {
+      .error input[type="text"] {
+        border: 1px solid hsl(0, 66%, 56%);
+      }
       // Text box media query for mobile devices
       @media (min-width: 40em) {
         display: grid;
@@ -78,6 +78,7 @@
         margin-bottom: 10px;
       }
 
+      /* Adding astericks next to labels */
       label[class="text-input"]::after,
       label[class="check-input"]::after {
         content: "*";
@@ -85,42 +86,40 @@
         color: hsl(169, 82%, 27%);
       }
 
+      /* Change mouse pointer when hovering over labels */
       label[class="check-input"]:hover {
         cursor: pointer;
+      }
+
+      /* Text and text area input styles  */
+      input[type="text"],
+      textarea {
+        width: 100%;
+        border-radius: 5px;
+        border: 1px solid hsl(186, 15%, 59%);
+        outline: none;
+        padding: 1rem;
+      }
+
+      input[type="text"] {
+        height: 40px;
+      }
+
+      input[type="text"]:focus,
+      textarea:focus {
+        border: 1px solid hsl(169, 82%, 27%);
+      }
+
+      /* Checkbox styles */
+      input[type="checkbox"] {
+        margin-right: 1rem;
       }
     }
 
     /* Error styles */
-    .error {
-      border: 1px solid hsl(0, 66%, 56%);
-    }
-
-    /* Text and text area input styles  */
-    input[type="text"] {
-      width: 100%;
-      border-radius: 5px;
-      border: 1px solid hsl(186, 15%, 59%);
-      outline: none;
-      height: 40px;
-      padding: 1rem;
-    }
-
-    textarea {
-      width: 100%;
-      border-radius: 5px;
-      border: 1px solid hsl(186, 15%, 59%);
-      outline: none;
-      padding: 1rem;
-    }
-
-    input[type="text"]:focus,
-    textarea:focus {
-      border: 1px solid hsl(169, 82%, 27%);
-    }
-
-    /* Checkbox styles */
-    input[type="checkbox"] {
-      margin-right: 1rem;
+    .error textarea,
+    .error input[type="text"] {
+      border: 1px solid hsl(0, 66%, 56%) !important;
     }
 
     /* Button styles */
@@ -133,8 +132,10 @@
       background-color: hsl(169, 82%, 27%);
       color: hsl(0, 0%, 100%);
       font-weight: 600;
+      cursor: pointer;
     }
 
+    /* Button hover effect */
     button:hover {
       background-color: hsl(187, 24%, 22%);
     }

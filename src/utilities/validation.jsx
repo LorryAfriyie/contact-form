@@ -1,27 +1,29 @@
 import { setErrorBorder } from "./setBorder";
 
-export const checkInputs = (
-  firstName,
-  lastName,
-  email,
-  message,
-  errMessage,
-) => {
-  if (firstName.current.value.trim() === "") {
-    console.log(errMessage);
-    firstName.current.parentElement.className = 'form-control error'
+const names = ["first_name", "last_name", "email", "message"];
+
+export const checkInputs = (input, message, label) => {
+  if (input.current.value.trim() === "" && input.current.name == names[0]) {
+    input.current.parentElement.className = "form-control error";
+    console.log(message);
   }
 
-  if (lastName.current.value.trim() === "") {
-    console.log(errMessage);
+  if (input.current.value.trim() === "" && input.current.name == names[1]) {
+    input.current.parentElement.className = "form-control error";
+    console.log(message);
   }
 
-  if (message.current.value.trim() === "") {
-    console.log(errMessage);
+  if (input.current.value.trim() === "" && input.current.name == names[2]) {
+    input.current.parentElement.className = "form-control error";
+    console.log(message);
   }
 
-  if (!validateEmail(email.current.value.trim())) {
-    console.log(errMessage);
+  if (
+    !validateEmail(input.current.value.trim()) &&
+    input.current.name == names[3]
+  ) {
+    input.current.parentElement.className = "form-control error";
+    console.log(message);
   }
 };
 

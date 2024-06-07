@@ -19,7 +19,11 @@ export const ContactForm = () => {
     message = useRef(null),
     consent = useRef(null);
 
-  const errorMessage = "This field is required";
+  // useRef error message hooks
+  const firstNameErr = useRef(null),
+    lastNameErr = useRef(null),
+    emailErr = useRef(null),
+    messageErr = useRef(null);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -27,10 +31,27 @@ export const ContactForm = () => {
     setData((data) => ({ ...data, [name]: value }));
   };
 
+  const inputs = [
+    {
+      input: firstName,
+      message: "This field is required",
+      label: firstNameErr,
+    },
+    { input: lastName, message: "This field is required", label: lastNameErr },
+    {
+      input: email,
+      message: "Please enter a valid email address",
+      label: emailErr,
+    },
+    { input: message, message: "This field is required", label: emailErr },
+  ];
+
   const formSubmit = (e) => {
     e.preventDefault();
-    document.getElementById().style.color;
-    checkInputs(firstName, lastName, email, message, errorMessage);
+
+    inputs.map((x) => {
+      return checkInputs(x.input, x.message, x.label);
+    });
   };
 
   useEffect(() => {}, []);
@@ -44,15 +65,14 @@ export const ContactForm = () => {
         noValidate
         onSubmit={formSubmit}
       >
-        <h2 className="heading" id="h">
-          Contact Us
-        </h2>
+        <h2 className="heading">Contact Us</h2>
 
         <div className="personal-details">
           <div className="form-control">
             <label htmlFor="first_name" className="text-input">
               <small>First Name</small>
             </label>
+
             <Input
               type={"text"}
               id={"first_name"}
@@ -63,6 +83,10 @@ export const ContactForm = () => {
               onChange={handleInputChange}
               ref={firstName}
             />
+
+            <label htmlFor="first_name" className="err-message">
+              <small>First Name</small>
+            </label>
           </div>
 
           <div className="form-control">
@@ -79,6 +103,10 @@ export const ContactForm = () => {
               onChange={handleInputChange}
               ref={lastName}
             />
+
+            <label htmlFor="last_name" className="err-message">
+              <small>First Name</small>
+            </label>
           </div>
         </div>
 
@@ -96,10 +124,14 @@ export const ContactForm = () => {
             onChange={handleInputChange}
             ref={email}
           />
+
+          <label htmlFor="email" className="err-message">
+            <small>First Name</small>
+          </label>
         </div>
 
         <div className="radio-container">
-          <label htmlFor="radio-button" className="radio-input">
+          <label htmlFor="radio" className="radio-input">
             <small>Query Type</small>
           </label>
 
@@ -124,6 +156,10 @@ export const ContactForm = () => {
               <label htmlFor="support_request">Support Request</label>
             </div>
           </div>
+
+          <label htmlFor="radio" className="err-message">
+            <small>First Name</small>
+          </label>
         </div>
 
         <div className="form-control">
@@ -139,6 +175,10 @@ export const ContactForm = () => {
             onChange={handleInputChange}
             ref={message}
           />
+
+          <label htmlFor="message" className="err-message">
+            <small>First Name</small>
+          </label>
         </div>
 
         <div className="form-control">
