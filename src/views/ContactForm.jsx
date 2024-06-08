@@ -43,7 +43,7 @@ export const ContactForm = () => {
       message: "Please enter a valid email address",
       label: emailErr,
     },
-    { input: message, message: "This field is required", label: emailErr },
+    { input: message, message: "This field is required", label: messageErr },
   ];
 
   const formSubmit = (e) => {
@@ -84,9 +84,7 @@ export const ContactForm = () => {
               ref={firstName}
             />
 
-            <label htmlFor="first_name" className="err-message">
-              <small>First Name</small>
-            </label>
+            <small className="err-message" ref={firstNameErr} id="h" />
           </div>
 
           <div className="form-control">
@@ -104,9 +102,7 @@ export const ContactForm = () => {
               ref={lastName}
             />
 
-            <label htmlFor="last_name" className="err-message">
-              <small>First Name</small>
-            </label>
+            <small className="err-message" ref={lastNameErr} />
           </div>
         </div>
 
@@ -125,9 +121,7 @@ export const ContactForm = () => {
             ref={email}
           />
 
-          <label htmlFor="email" className="err-message">
-            <small>First Name</small>
-          </label>
+          <small className="err-message" ref={emailErr} />
         </div>
 
         <div className="radio-container">
@@ -157,9 +151,7 @@ export const ContactForm = () => {
             </div>
           </div>
 
-          <label htmlFor="radio" className="err-message">
-            <small>First Name</small>
-          </label>
+          {/* <small className="err-message">First Name</small> */}
         </div>
 
         <div className="form-control">
@@ -176,9 +168,7 @@ export const ContactForm = () => {
             ref={message}
           />
 
-          <label htmlFor="message" className="err-message">
-            <small>First Name</small>
-          </label>
+          <small className="err-message" ref={messageErr} />
         </div>
 
         <div className="form-control">

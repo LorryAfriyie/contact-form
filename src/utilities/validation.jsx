@@ -5,17 +5,20 @@ const names = ["first_name", "last_name", "email", "message"];
 export const checkInputs = (input, message, label) => {
   if (input.current.value.trim() === "" && input.current.name == names[0]) {
     input.current.parentElement.className = "form-control error";
-    console.log(message);
+    label.current.style.color = "hsl(0, 66%, 56%)";
+    label.current.innerText = message;
   }
 
   if (input.current.value.trim() === "" && input.current.name == names[1]) {
     input.current.parentElement.className = "form-control error";
-    console.log(message);
+    label.current.style.color = "hsl(0, 66%, 56%)";
+    label.current.innerText = message;
   }
 
   if (input.current.value.trim() === "" && input.current.name == names[2]) {
     input.current.parentElement.className = "form-control error";
-    console.log(message);
+    label.current.style.color = "hsl(0, 66%, 56%)";
+    label.current.innerText = message;
   }
 
   if (
@@ -23,7 +26,8 @@ export const checkInputs = (input, message, label) => {
     input.current.name == names[3]
   ) {
     input.current.parentElement.className = "form-control error";
-    console.log(message);
+    label.current.style.color = "hsl(0, 66%, 56%)";
+    label.current.innerText = message;
   }
 };
 
