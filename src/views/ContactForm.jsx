@@ -3,6 +3,7 @@ import { Button } from "../components/button";
 import { checkInputs } from "../utilities/validation";
 import { Modal } from "../components/modal";
 import { useState, useRef, useEffect } from "react";
+import { removeErrorBorder } from "../utilities/setBorder";
 
 export const ContactForm = () => {
   const [data, setData] = useState({
@@ -50,11 +51,13 @@ export const ContactForm = () => {
     e.preventDefault();
 
     inputs.map((x) => {
-      return checkInputs(x.input, x.message, x.label);
+      checkInputs(x.input, x.message, x.label);
     });
   };
 
-  useEffect(() => {}, []);
+  useEffect(() => {
+    inputs.map((x) => removeErrorBorder(x.input, x.label));
+  });
 
   return (
     <div className="contact-form">
@@ -79,12 +82,11 @@ export const ContactForm = () => {
               className={"first_name"}
               name={"first_name"}
               value={data.first_name}
-              error
               onChange={handleInputChange}
               ref={firstName}
             />
 
-            <small className="err-message" ref={firstNameErr} id="h" />
+            <small className="err-message" ref={firstNameErr} />
           </div>
 
           <div className="form-control">
