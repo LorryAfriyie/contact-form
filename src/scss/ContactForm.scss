@@ -93,6 +93,7 @@
 
       /* Text and text area input styles  */
       input[type="text"],
+      input[type="email"],
       textarea {
         width: 100%;
         border-radius: 5px;
@@ -101,7 +102,8 @@
         padding: 1rem;
       }
 
-      input[type="text"] {
+      input[type="text"],
+      input[type="email"] {
         height: 40px;
       }
 
@@ -118,7 +120,8 @@
 
     /* Error styles */
     .error textarea,
-    .error input[type="text"] {
+    .error input[type="text"],
+    .error input[type="email"] {
       border: 1px solid hsl(0, 66%, 56%) !important;
     }
 

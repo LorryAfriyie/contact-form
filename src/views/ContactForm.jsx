@@ -114,7 +114,7 @@ export const ContactForm = () => {
           </label>
 
           <Input
-            type={"text"}
+            type={"email"}
             id={"email"}
             className={"email"}
             name={"email"}
