@@ -1,7 +1,7 @@
 /* Styles belonging to the ContactForm component */
 .contact-form {
   width: 100%;
-  width: 700px; // fix width issues
+  width: 660px; // fix width issues
   background-color: hsl(0, 0%, 100%);
   border-radius: 10px;
   padding: 2rem;
@@ -10,7 +10,7 @@
   /* Form styles */
   .form {
     .heading {
-      margin-bottom: 2rem;
+      margin-bottom: 1.5rem;
     }
 
     .personal-details {
@@ -23,6 +23,12 @@
         grid-template-columns: repeat(2, 1fr);
         gap: 1rem;
       }
+    }
+
+    /* Checkbox container style */
+    .checkbox-container {
+      margin-top: 1.75rem;
+      margin-bottom: 1.75rem;
     }
 
     /*  Radio button container styles */
@@ -69,7 +75,7 @@
 
     .form-control {
       position: relative;
-      margin-bottom: 15px;
+      margin-bottom: 20px;
 
       /* Label styles */
       label[class="text-input"] {
@@ -103,10 +109,11 @@
 
       input[type="text"],
       input[type="email"] {
-        height: 40px;
+        height: 45px;
       }
 
       input[type="text"]:focus,
+      input[type="email"]:focus,
       textarea:focus {
         border: 1px solid hsl(169, 82%, 27%);
       }

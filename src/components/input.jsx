@@ -2,7 +2,7 @@ import { forwardRef } from "react";
 
 // eslint-disable-next-line react/display-name
 export const Input = forwardRef(
-  ({ name, id, className, type, value, onChange }, ref) => {
+  ({ name, id, className, type, value, onChange, checked }, ref) => {
     return (
       <>
         <input
@@ -13,6 +13,7 @@ export const Input = forwardRef(
           value={value}
           onChange={onChange}
           ref={ref}
+          checked={checked}
         />
       </>
     );

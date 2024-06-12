@@ -26,6 +26,8 @@ export const ContactForm = () => {
     emailErr = useRef(null),
     messageErr = useRef(null);
 
+  const [queryType, setQueryType] = useState();
+
   const handleInputChange = (e) => {
     const { name, value } = e.target;
 
@@ -138,6 +140,8 @@ export const ContactForm = () => {
                 id={"general_enquiry"}
                 className={"general_enquiry"}
                 name={"radio"}
+                value={"General Enquiry"}
+                onChange={(e) => setQueryType(e.target.value)}
               />
               <label htmlFor="general_enquiry">General Enquiry</label>
             </div>
@@ -148,6 +152,8 @@ export const ContactForm = () => {
                 id={"support_request"}
                 className={"support_request"}
                 name={"radio"}
+                value={"Support Request"}
+                onChange={(e) => setQueryType(e.target.value)}
               />
               <label htmlFor="support_request">Support Request</label>
             </div>
@@ -173,16 +179,18 @@ export const ContactForm = () => {
           <small className="err-message" ref={messageErr} />
         </div>
 
-        <div className="form-control">
-          <label htmlFor="consent" className="check-input">
-            <Input
-              type={"checkbox"}
-              id={"consent"}
-              className={"consent"}
-              ref={consent}
-            />
-            <small>I consent to being contacted by the team</small>
-          </label>
+        <div className="checkbox-container">
+          <div className="form-control">
+            <label htmlFor="consent" className="check-input">
+              <Input
+                type={"checkbox"}
+                id={"consent"}
+                className={"consent"}
+                ref={consent}
+              />
+              <small>I consent to being contacted by the team</small>
+            </label>
+          </div>
         </div>
 
         <Button
