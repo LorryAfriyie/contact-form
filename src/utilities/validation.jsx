@@ -1,8 +1,9 @@
-import { setErrorBorder } from "./setBorder";
+import { setErrorBorder, setRadioError } from "./setBorder";
 import { validateEmail } from "./emailRegex";
 
 const names = ["first_name", "last_name", "email", "message"];
 
+// Setting error styles for input text boxes
 export const checkInputs = (input, message, label) => {
   if (input.current.value.trim() === "" && input.current.name == names[0]) {
     setErrorBorder(input.current, message, label.current);
@@ -22,4 +23,10 @@ export const checkInputs = (input, message, label) => {
   ) {
     setErrorBorder(input.current, message, label.current);
   }
+};
+
+// Setting error style for radio button
+export const checkRadio = (input, label) => {
+  if (input === "" || input === undefined || input === null)
+    setRadioError(label);
 };

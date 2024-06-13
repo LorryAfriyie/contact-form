@@ -29,3 +29,12 @@ export const removeErrorBorder = (input, label) => {
     });
   }
 };
+
+export const setRadioError = (label) => {
+  label.current.style.color = "hsl(0, 66%, 56%)";
+  label.current.innerText = "Nothing";
+};
+
+export const removeRadioError = (label) => {
+  label.current.innerText = "";
+};

@@ -1,9 +1,9 @@
 import { Input, TextArea } from "../components/input";
 import { Button } from "../components/button";
-import { checkInputs } from "../utilities/validation";
+import { checkInputs, checkRadio } from "../utilities/validation";
 import { Modal } from "../components/modal";
 import { useState, useRef, useEffect } from "react";
-import { removeErrorBorder } from "../utilities/setBorder";
+import { removeErrorBorder, removeRadioError } from "../utilities/setBorder";
 
 export const ContactForm = () => {
   const [data, setData] = useState({
@@ -24,16 +24,24 @@ export const ContactForm = () => {
   const firstNameErr = useRef(null),
     lastNameErr = useRef(null),
     emailErr = useRef(null),
-    messageErr = useRef(null);
+    messageErr = useRef(null),
+    radioBtnErr = useRef(null);
 
-  const [queryType, setQueryType] = useState();
+  // Radio button selection handling
+  const [queryType, setQueryType] = useState("");
 
+  const handleRadioChange = (e) => {
+    setQueryType(e.target.value);
+  };
+
+  // Input boxes handling
   const handleInputChange = (e) => {
     const { name, value } = e.target;
 
     setData((data) => ({ ...data, [name]: value }));
   };
 
+  // Input useRef array of objects
   const inputs = [
     {
       input: firstName,
@@ -49,12 +57,15 @@ export const ContactForm = () => {
     { input: message, message: "This field is required", label: messageErr },
   ];
 
+  // Submit data function
   const formSubmit = (e) => {
     e.preventDefault();
 
     inputs.map((x) => {
       checkInputs(x.input, x.message, x.label);
     });
+
+    checkRadio(queryType, radioBtnErr);
   };
 
   useEffect(() => {
@@ -73,6 +84,7 @@ export const ContactForm = () => {
         <h2 className="heading">Contact Us</h2>
 
         <div className="personal-details">
+          {/* First name input */}
           <div className="form-control">
             <label htmlFor="first_name" className="text-input">
               <small>First Name</small>
@@ -91,6 +103,7 @@ export const ContactForm = () => {
             <small className="err-message" ref={firstNameErr} />
           </div>
 
+          {/* Last name input */}
           <div className="form-control">
             <label htmlFor="last_name" className="text-input">
               <small>Last Name</small>
@@ -110,6 +123,7 @@ export const ContactForm = () => {
           </div>
         </div>
 
+        {/* Email input */}
         <div className="form-control">
           <label htmlFor="email" className="text-input">
             <small>Email</small>
@@ -128,6 +142,7 @@ export const ContactForm = () => {
           <small className="err-message" ref={emailErr} />
         </div>
 
+        {/* Radio Button */}
         <div className="radio-container">
           <label htmlFor="radio" className="radio-input">
             <small>Query Type</small>
@@ -141,7 +156,7 @@ export const ContactForm = () => {
                 className={"general_enquiry"}
                 name={"radio"}
                 value={"General Enquiry"}
-                onChange={(e) => setQueryType(e.target.value)}
+                onChange={handleRadioChange}
               />
               <label htmlFor="general_enquiry">General Enquiry</label>
             </div>
@@ -153,15 +168,16 @@ export const ContactForm = () => {
                 className={"support_request"}
                 name={"radio"}
                 value={"Support Request"}
-                onChange={(e) => setQueryType(e.target.value)}
+                onChange={handleRadioChange}
               />
               <label htmlFor="support_request">Support Request</label>
             </div>
           </div>
 
-          {/* <small className="err-message">First Name</small> */}
+          <small className="err-message" ref={radioBtnErr} />
         </div>
 
+        {/* Message textarea */}
         <div className="form-control">
           <label htmlFor="message" className="text-input">
             <small>Message</small>
@@ -179,6 +195,7 @@ export const ContactForm = () => {
           <small className="err-message" ref={messageErr} />
         </div>
 
+        {/* Checkbox */}
         <div className="checkbox-container">
           <div className="form-control">
             <label htmlFor="consent" className="check-input">
@@ -193,6 +210,7 @@ export const ContactForm = () => {
           </div>
         </div>
 
+        {/* Submit button */}
         <Button
           type={"submit"}
           text={"Submit"}
@@ -202,6 +220,7 @@ export const ContactForm = () => {
         />
       </form>
 
+      {/* Modal */}
       <Modal />
     </div>
   );
