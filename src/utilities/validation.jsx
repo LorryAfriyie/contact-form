@@ -1,4 +1,4 @@
-import { setErrorBorder, setRadioError } from "./setBorder";
+import { setErrorBorder, setRadioError, setCheckboxError } from "./setBorder";
 import { validateEmail } from "./emailRegex";
 
 const names = ["first_name", "last_name", "email", "message"];
@@ -29,4 +29,9 @@ export const checkInputs = (input, message, label) => {
 export const checkRadio = (input, label) => {
   if (input === "" || input === undefined || input === null)
     setRadioError(label);
+};
+
+// Setting error style for checkbox
+export const validateCheckbox = (input, label) => {
+  if (!input.current.checked) setCheckboxError(label);
 };

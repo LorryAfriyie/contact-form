@@ -29,6 +29,10 @@
     .checkbox-container {
       margin-top: 1.75rem;
       margin-bottom: 1.75rem;
+
+      .form-control {
+        margin-bottom: 0;
+      }
     }
 
     /*  Radio button container styles */

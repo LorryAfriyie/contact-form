@@ -1,6 +1,10 @@
 import { Input, TextArea } from "../components/input";
 import { Button } from "../components/button";
-import { checkInputs, checkRadio } from "../utilities/validation";
+import {
+  checkInputs,
+  checkRadio,
+  validateCheckbox,
+} from "../utilities/validation";
 import { Modal } from "../components/modal";
 import { useState, useRef, useEffect } from "react";
 import { removeErrorBorder, removeRadioError } from "../utilities/setBorder";
@@ -25,7 +29,8 @@ export const ContactForm = () => {
     lastNameErr = useRef(null),
     emailErr = useRef(null),
     messageErr = useRef(null),
-    radioBtnErr = useRef(null);
+    radioBtnErr = useRef(null),
+    consentErr = useRef(null);
 
   // Radio button selection handling
   const [queryType, setQueryType] = useState("");
@@ -66,6 +71,8 @@ export const ContactForm = () => {
     });
 
     checkRadio(queryType, radioBtnErr);
+
+    validateCheckbox(consent, consentErr);
   };
 
   useEffect(() => {
@@ -208,6 +215,8 @@ export const ContactForm = () => {
               <small>I consent to being contacted by the team</small>
             </label>
           </div>
+
+          <small className="err-message" ref={consentErr} />
         </div>
 
         {/* Submit button */}

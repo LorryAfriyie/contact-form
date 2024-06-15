@@ -30,11 +30,23 @@ export const removeErrorBorder = (input, label) => {
   }
 };
 
+/* Radio button error styling */
 export const setRadioError = (label) => {
   label.current.style.color = "hsl(0, 66%, 56%)";
-  label.current.innerText = "Nothing";
+  label.current.innerText = "Please select a query type";
 };
 
 export const removeRadioError = (label) => {
+  label.current.innerText = "";
+};
+
+/* Checkbox error styling */
+export const setCheckboxError = (label) => {
+  label.current.style.color = "hsl(0, 66%, 56%)";
+  label.current.innerText =
+    "To submit this form, please consent to being contacted";
+};
+
+export const removeCheckboxError = (label) => {
   label.current.innerText = "";
 };
