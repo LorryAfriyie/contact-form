@@ -31,9 +31,10 @@ export const removeErrorBorder = (input, label) => {
 };
 
 /* Radio button error styling */
-export const setRadioError = (label) => {
+export const setRadioError = (input, label) => {
   label.current.style.color = "hsl(0, 66%, 56%)";
   label.current.innerText = "Please select a query type";
+  input.current.parentElement.className = "form-control error";
 };
 
 export const removeRadioError = (label) => {

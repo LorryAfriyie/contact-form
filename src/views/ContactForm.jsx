@@ -22,7 +22,9 @@ export const ContactForm = () => {
     lastName = useRef(null),
     email = useRef(null),
     message = useRef(null),
-    consent = useRef(null);
+    consent = useRef(null),
+    queryType1 = useRef(null),
+    queryType2 = useRef(null);
 
   // useRef error message hooks
   const firstNameErr = useRef(null),
@@ -62,6 +64,12 @@ export const ContactForm = () => {
     { input: message, message: "This field is required", label: messageErr },
   ];
 
+  // Radio button useRef array of objects
+  const radioRef = [
+    { item: queryType1, label: radioBtnErr },
+    { item: queryType2, label: radioBtnErr },
+  ];
+
   // Submit data function
   const formSubmit = (e) => {
     e.preventDefault();
@@ -70,7 +78,9 @@ export const ContactForm = () => {
       checkInputs(x.input, x.message, x.label);
     });
 
-    checkRadio(queryType, radioBtnErr);
+    radioRef.map((x) => {
+      checkRadio(x.item, x.label);
+    });
 
     validateCheckbox(consent, consentErr);
   };
@@ -164,6 +174,7 @@ export const ContactForm = () => {
                 name={"radio"}
                 value={"General Enquiry"}
                 onChange={handleRadioChange}
+                ref={queryType1}
               />
               <label htmlFor="general_enquiry">General Enquiry</label>
             </div>
@@ -176,6 +187,7 @@ export const ContactForm = () => {
                 name={"radio"}
                 value={"Support Request"}
                 onChange={handleRadioChange}
+                ref={queryType2}
               />
               <label htmlFor="support_request">Support Request</label>
             </div>

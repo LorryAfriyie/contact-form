@@ -27,8 +27,9 @@ export const checkInputs = (input, message, label) => {
 
 // Setting error style for radio button
 export const checkRadio = (input, label) => {
-  if (input === "" || input === undefined || input === null)
-    setRadioError(label);
+  if (!input.current.checked) setRadioError(input, label);
+  /* if (input === "" || input === undefined || input === null)
+    setRadioError(input, label); */
 };
 
 // Setting error style for checkbox
