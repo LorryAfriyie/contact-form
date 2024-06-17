@@ -27,6 +27,21 @@ export const checkInputs = (input, message, label) => {
 
 // Setting error style for radio button
 export const checkRadio = (input, label) => {
+  switch (input.current.checked) {
+    case true:
+      console.log("Checked");
+      break;
+    case false:
+      if (
+        input.current.className === "general_enquiry" &&
+        input.current.name === "support_request"
+      )
+        setRadioError(input, label);
+      break;
+    default:
+      break;
+  }
+
   if (!input.current.checked) setRadioError(input, label);
   /* if (input === "" || input === undefined || input === null)
     setRadioError(input, label); */

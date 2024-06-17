@@ -7,7 +7,11 @@ import {
 } from "../utilities/validation";
 import { Modal } from "../components/modal";
 import { useState, useRef, useEffect } from "react";
-import { removeErrorBorder, removeRadioError } from "../utilities/setBorder";
+import {
+  removeErrorBorder,
+  removeRadioError,
+  removeCheckboxError,
+} from "../utilities/setBorder";
 
 export const ContactForm = () => {
   const [data, setData] = useState({
@@ -87,6 +91,10 @@ export const ContactForm = () => {
 
   useEffect(() => {
     inputs.map((x) => removeErrorBorder(x.input, x.label));
+
+    radioRef.map((x) => removeRadioError(x.item, x.label));
+
+    removeCheckboxError(consent, consentErr);
   });
 
   return (

@@ -37,8 +37,11 @@ export const setRadioError = (input, label) => {
   input.current.parentElement.className = "form-control error";
 };
 
-export const removeRadioError = (label) => {
-  label.current.innerText = "";
+export const removeRadioError = (input, label) => {
+  if (input.current.checked) {
+    label.current.innerText = "";
+    input.current.parentElement.className = "form-control";
+  }
 };
 
 /* Checkbox error styling */
@@ -48,6 +51,6 @@ export const setCheckboxError = (label) => {
     "To submit this form, please consent to being contacted";
 };
 
-export const removeCheckboxError = (label) => {
-  label.current.innerText = "";
+export const removeCheckboxError = (input, label) => {
+  if (input.current.checked) label.current.innerText = "";
 };
