@@ -31,16 +31,22 @@ export const removeErrorBorder = (input, label) => {
 };
 
 /* Radio button error styling */
-export const setRadioError = (input, label) => {
+export const setRadioError = (input, label, radioArr) => {
   label.current.style.color = "hsl(0, 66%, 56%)";
   label.current.innerText = "Please select a query type";
-  input.current.parentElement.className = "form-control error";
+
+  radioArr.map((x) => {
+    return (x.item.current.parentElement.className = "form-control error");
+  });
 };
 
-export const removeRadioError = (input, label) => {
-  if (input.current.checked) {
+export const removeRadioError = (input, label, radioArr) => {
+  if (input) {
     label.current.innerText = "";
-    input.current.parentElement.className = "form-control";
+
+    radioArr.map((x) => {
+      return (x.item.current.parentElement.className = "form-control");
+    });
   }
 };
 
@@ -51,6 +57,7 @@ export const setCheckboxError = (label) => {
     "To submit this form, please consent to being contacted";
 };
 
-export const removeCheckboxError = (input, label) => {
-  if (input.current.checked) label.current.innerText = "";
+export const removeCheckboxError = (label) => {
+  label.current.innerText = "";
+  console.log("removed");
 };

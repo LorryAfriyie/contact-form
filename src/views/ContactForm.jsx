@@ -7,11 +7,7 @@ import {
 } from "../utilities/validation";
 import { Modal } from "../components/modal";
 import { useState, useRef, useEffect } from "react";
-import {
-  removeErrorBorder,
-  removeRadioError,
-  removeCheckboxError,
-} from "../utilities/setBorder";
+import { removeErrorBorder, removeRadioError } from "../utilities/setBorder";
 
 export const ContactForm = () => {
   const [data, setData] = useState({
@@ -69,32 +65,30 @@ export const ContactForm = () => {
   ];
 
   // Radio button useRef array of objects
-  const radioRef = [
-    { item: queryType1, label: radioBtnErr },
-    { item: queryType2, label: radioBtnErr },
-  ];
+  const radioRef = [{ item: queryType1 }, { item: queryType2 }];
 
   // Submit data function
   const formSubmit = (e) => {
     e.preventDefault();
 
+    // Validate input text function
     inputs.map((x) => {
       checkInputs(x.input, x.message, x.label);
     });
 
-    radioRef.map((x) => {
-      checkRadio(x.item, x.label);
-    });
+    // Validate radio button function
+    checkRadio(queryType, radioBtnErr, radioRef);
 
+    // Validate checkbox function
     validateCheckbox(consent, consentErr);
   };
 
   useEffect(() => {
+    // Remove input texts error validation
     inputs.map((x) => removeErrorBorder(x.input, x.label));
 
-    radioRef.map((x) => removeRadioError(x.item, x.label));
-
-    removeCheckboxError(consent, consentErr);
+    // Remove radio button error validation
+    removeRadioError(queryType, radioBtnErr, radioRef);
   });
 
   return (
