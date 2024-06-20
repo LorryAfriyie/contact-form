@@ -7,7 +7,11 @@ import {
 } from "../utilities/validation";
 import { Modal } from "../components/modal";
 import { useState, useRef, useEffect } from "react";
-import { removeErrorBorder, removeRadioError } from "../utilities/setBorder";
+import {
+  removeCheckboxError,
+  removeErrorBorder,
+  removeRadioError,
+} from "../utilities/setBorder";
 
 export const ContactForm = () => {
   const [data, setData] = useState({
@@ -34,8 +38,11 @@ export const ContactForm = () => {
     radioBtnErr = useRef(null),
     consentErr = useRef(null);
 
-  // Radio button selection handling
+  // Radio button state hook
   const [queryType, setQueryType] = useState("");
+
+  // Checkbox state hook
+  const [checkbox, setCheckbox] = useState(false);
 
   const handleRadioChange = (e) => {
     setQueryType(e.target.value);
@@ -46,6 +53,20 @@ export const ContactForm = () => {
     const { name, value } = e.target;
 
     setData((data) => ({ ...data, [name]: value }));
+  };
+
+  // Checkbox handling
+  const handleCheckbox = (e) => {
+    switch (e.target.checked) {
+      case true:
+        setCheckbox(true);
+        break;
+      case false:
+        setCheckbox(false);
+        break;
+      default:
+        break;
+    }
   };
 
   // Input useRef array of objects
@@ -80,7 +101,7 @@ export const ContactForm = () => {
     checkRadio(queryType, radioBtnErr, radioRef);
 
     // Validate checkbox function
-    validateCheckbox(consent, consentErr);
+    validateCheckbox(checkbox, consentErr);
   };
 
   useEffect(() => {
@@ -89,6 +110,8 @@ export const ContactForm = () => {
 
     // Remove radio button error validation
     removeRadioError(queryType, radioBtnErr, radioRef);
+
+    removeCheckboxError(consent, consentErr);
   });
 
   return (
@@ -224,6 +247,7 @@ export const ContactForm = () => {
                 type={"checkbox"}
                 id={"consent"}
                 className={"consent"}
+                onChange={handleCheckbox}
                 ref={consent}
               />
               <small>I consent to being contacted by the team</small>

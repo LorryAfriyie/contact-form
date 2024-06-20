@@ -28,10 +28,10 @@ export const checkInputs = (input, message, label) => {
 // Setting error style for radio button
 export const checkRadio = (input, label, radioArr) => {
   if (input === "" || input === undefined || input === null)
-    setRadioError(input, label, radioArr);
+    setRadioError(label, radioArr);
 };
 
 // Setting error style for checkbox
 export const validateCheckbox = (input, label) => {
-  if (!input.current.checked) setCheckboxError(label);
+  if (!input) setCheckboxError(label);
 };

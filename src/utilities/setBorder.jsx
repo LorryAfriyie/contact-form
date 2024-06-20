@@ -31,7 +31,7 @@ export const removeErrorBorder = (input, label) => {
 };
 
 /* Radio button error styling */
-export const setRadioError = (input, label, radioArr) => {
+export const setRadioError = (label, radioArr) => {
   label.current.style.color = "hsl(0, 66%, 56%)";
   label.current.innerText = "Please select a query type";
 
@@ -57,7 +57,6 @@ export const setCheckboxError = (label) => {
     "To submit this form, please consent to being contacted";
 };
 
-export const removeCheckboxError = (label) => {
-  label.current.innerText = "";
-  console.log("removed");
+export const removeCheckboxError = (input, label) => {
+  if (input) label.current.innerText = "";
 };
