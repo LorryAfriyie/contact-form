@@ -1,3 +1,9 @@
 .modal {
   display: none;
+
+  .modal-content {
+    .close-button:hover {
+      cursor: pointer;
+    }
+  }
 }

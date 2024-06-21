@@ -4,6 +4,7 @@ import {
   checkInputs,
   checkRadio,
   validateCheckbox,
+  checkErrors,
 } from "../utilities/validation";
 import { Modal } from "../components/modal";
 import { useState, useRef, useEffect } from "react";
@@ -21,6 +22,8 @@ export const ContactForm = () => {
     message: "",
   });
 
+  const [showModal, setShowModal] = useState(false);
+
   // useRef Hooks
   const firstName = useRef(null),
     lastName = useRef(null),
@@ -37,6 +40,8 @@ export const ContactForm = () => {
     messageErr = useRef(null),
     radioBtnErr = useRef(null),
     consentErr = useRef(null);
+
+  const form = useRef(null);
 
   // Radio button state hook
   const [queryType, setQueryType] = useState("");
@@ -102,6 +107,8 @@ export const ContactForm = () => {
 
     // Validate checkbox function
     validateCheckbox(checkbox, consentErr);
+
+    if (checkErrors(form)) setShowModal(true);
   };
 
   useEffect(() => {
@@ -122,6 +129,7 @@ export const ContactForm = () => {
         name="form"
         noValidate
         onSubmit={formSubmit}
+        ref={form}
       >
         <h2 className="heading">Contact Us</h2>
 
@@ -268,7 +276,7 @@ export const ContactForm = () => {
       </form>
 
       {/* Modal */}
-      <Modal />
+      <Modal show={showModal} />
     </div>
   );
 };

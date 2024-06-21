@@ -13,13 +13,13 @@ export const checkInputs = (input, message, label) => {
     setErrorBorder(input.current, message, label.current);
   }
 
-  if (input.current.value.trim() === "" && input.current.name == names[2]) {
+  if (input.current.value.trim() === "" && input.current.name == names[3]) {
     setErrorBorder(input.current, message, label.current);
   }
 
   if (
     !validateEmail(input.current.value.trim()) &&
-    input.current.name == names[3]
+    input.current.name == names[2]
   ) {
     setErrorBorder(input.current, message, label.current);
   }
@@ -34,4 +34,14 @@ export const checkRadio = (input, label, radioArr) => {
 // Setting error style for checkbox
 export const validateCheckbox = (input, label) => {
   if (!input) setCheckboxError(label);
+};
+
+export const checkErrors = (form) => {
+  let isValid = true;
+
+  form.current.querySelectorAll(".form-control").forEach((control) => {
+    if (control.classList.contains("error")) isValid = false;
+  });
+
+  return isValid;
 };
