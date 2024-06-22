@@ -22,7 +22,7 @@ export const Modal = ({ show }) => {
         <span className="close-button" ref={closeBtn}>
           &times;
         </span>
-        <h2 className="modal-header">Message Sent!</h2>
+        <h4 className="modal-header">Message Sent!</h4>
         <p>Thanks for completing the form. We&apos;ll be in touch soon!</p>
       </div>
     </div>

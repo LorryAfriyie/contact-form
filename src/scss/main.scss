@@ -16,8 +16,9 @@
 
 body {
   background-color: hsl(148, 38%, 91%);
-  display: grid;
-  place-items: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   height: 100vh;
   padding: 0 20px;
 
