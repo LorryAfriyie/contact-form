@@ -1,7 +1,7 @@
 /* Styles belonging to the ContactForm component */
 .contact-form {
   width: 100%;
-  width: 660px; // fix width issues
+  max-width: 660px; // fix width issues
   background-color: hsl(0, 0%, 100%);
   border-radius: 10px;
   padding: 2rem;
@@ -51,9 +51,9 @@
       }
 
       .radio-button {
-        display: grid;
         // Radio button media query for mobile
         @media (min-width: 40em) {
+          display: grid;
           grid-template-columns: repeat(2, 1fr);
           gap: 1rem;
         }
