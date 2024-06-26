@@ -16,11 +16,13 @@
 
 body {
   background-color: hsl(148, 38%, 91%);
-  height: 100vh;
   padding: 0 20px;
 
-  display: grid;
-  place-items: center;
+  .main-container {
+    display: grid;
+    place-items: center;
+    height: 100vh;
+  }
 
   .attribution {
     font-size: 11px;

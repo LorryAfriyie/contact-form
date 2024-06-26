@@ -276,6 +276,7 @@ export const ContactForm = () => {
           />
         </form>
       </div>
+      
 
       {/* Modal */}
       <Modal show={showModal} />

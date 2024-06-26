@@ -12,9 +12,10 @@
   .modal-content {
     background-color: hsl(187, 24%, 22%);
     margin: 2% auto;
-    padding: 25px;
+    padding: 25px 10px 25px 1rem;
     width: auto;
     border-radius: 10px;
+    max-width: 500px;
     color: hsl(0, 0%, 100%);
 
     .modal-header {
@@ -23,7 +24,7 @@
 
     .modal-header::before {
       content: url("/images/icon-success-check.svg");
-      padding-right: 1rem;
+      padding: 0 1rem 0 2.25rem;
       position: relative;
       top: 5px;
     }

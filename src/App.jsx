@@ -3,7 +3,10 @@ import { ContactForm } from "./views/ContactForm";
 function App() {
   return (
     <>
-      <ContactForm />
+      <div className="main-container">
+        <ContactForm />
+      </div>
+
       <div className="attribution">
         Challenge by{" "}
         <a href="https://www.frontendmentor.io?ref=challenge">
