@@ -106,7 +106,7 @@ export const ContactForm = () => {
     checkRadio(queryType, radioBtnErr, radioRef);
 
     // Validate checkbox function
-    validateCheckbox(checkbox, consentErr);
+    validateCheckbox(checkbox, consentErr, consent);
 
     if (checkErrors(form)) setShowModal(true);
   };
@@ -251,14 +251,14 @@ export const ContactForm = () => {
           {/* Checkbox */}
           <div className="checkbox-container">
             <div className="form-control">
+              <Input
+                type={"checkbox"}
+                id={"consent"}
+                className={"consent"}
+                onChange={handleCheckbox}
+                ref={consent}
+              />
               <label htmlFor="consent" className="check-input">
-                <Input
-                  type={"checkbox"}
-                  id={"consent"}
-                  className={"consent"}
-                  onChange={handleCheckbox}
-                  ref={consent}
-                />
                 <small>I consent to being contacted by the team</small>
               </label>
             </div>
@@ -276,7 +276,6 @@ export const ContactForm = () => {
           />
         </form>
       </div>
-      
 
       {/* Modal */}
       <Modal show={showModal} />

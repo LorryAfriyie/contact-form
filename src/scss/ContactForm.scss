@@ -7,7 +7,6 @@
   padding: 2rem;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 
-
   /* Form styles */
   .form {
     .heading {
@@ -62,6 +61,7 @@
         // Radio button styles
         input[type="radio"] {
           margin-right: 1rem;
+
           //display: none;
         }
 
@@ -76,7 +76,11 @@
           border: 1px solid hsl(186, 15%, 59%);
           border-radius: 5px;
           padding: 10px 0 10px 30px;
-          margin-bottom: 0;
+          margin-bottom: 2rem;
+
+          @media (min-width: 40em) {
+            margin-bottom: 0;
+          }
         }
 
         .error {

@@ -1,5 +1,5 @@
 .modal {
-  display: block;
+  display: none;
   position: fixed;
   z-index: 2;
   left: 0;
@@ -12,19 +12,19 @@
   .modal-content {
     background-color: hsl(187, 24%, 22%);
     margin: 2% auto;
-    padding: 25px 10px 25px 1rem;
+    padding: 30px 20px 30px 20px;
     width: auto;
     border-radius: 10px;
-    max-width: 500px;
+    max-width: 450px;
     color: hsl(0, 0%, 100%);
 
     .modal-header {
-      margin-bottom: 20px;
+      margin-bottom: 10px;
     }
 
     .modal-header::before {
       content: url("/images/icon-success-check.svg");
-      padding: 0 1rem 0 2.25rem;
+      padding: 0 0.75rem 0 10px;
       position: relative;
       top: 5px;
     }

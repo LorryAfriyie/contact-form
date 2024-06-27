@@ -32,10 +32,11 @@ export const checkRadio = (input, label, radioArr) => {
 };
 
 // Setting error style for checkbox
-export const validateCheckbox = (input, label) => {
-  if (!input) setCheckboxError(label);
+export const validateCheckbox = (check, label, input) => {
+  if (!check) setCheckboxError(label, input);
 };
 
+// Check whether the errors have been set
 export const checkErrors = (form) => {
   let isValid = true;
 

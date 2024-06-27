@@ -1,11 +1,13 @@
 import { validateEmail } from "./emailRegex";
 
+/* Set the error borders on the text inputs */
 export const setErrorBorder = (input, message, label) => {
   input.parentElement.className = "form-control error";
   label.style.color = "hsl(0, 66%, 56%)";
   label.innerText = message;
 };
 
+/* Remove the error borders from the text inputs */
 export const removeErrorBorder = (input, label) => {
   if (
     input.current.parentElement.className === "form-control error" &&
@@ -51,12 +53,16 @@ export const removeRadioError = (input, label, radioArr) => {
 };
 
 /* Checkbox error styling */
-export const setCheckboxError = (label) => {
+export const setCheckboxError = (label, input) => {
+  input.current.parentElement.className = "form-control error";
   label.current.style.color = "hsl(0, 66%, 56%)";
   label.current.innerText =
     "To submit this form, please consent to being contacted";
 };
 
 export const removeCheckboxError = (input, label) => {
-  if (input) label.current.innerText = "";
+  if (input.current.checked) {
+    label.current.innerText = "";
+    input.current.parentElement.className = "form-control";
+  }
 };
