@@ -33,6 +33,11 @@
       .form-control {
         margin-bottom: 0;
       }
+
+      input[type="checkbox"] {
+        position: relative;
+        top: 2px;
+      }
     }
 
     /*  Radio button container styles */
