@@ -14,6 +14,8 @@ import {
   removeRadioError,
 } from "../utilities/setBorder";
 
+import { radioButtonStyle } from "../utilities/radioCheckedStyle";
+
 export const ContactForm = () => {
   const [data, setData] = useState({
     first_name: "",
@@ -119,6 +121,9 @@ export const ContactForm = () => {
     removeRadioError(queryType, radioBtnErr, radioRef);
 
     removeCheckboxError(consent, consentErr);
+
+    // Style the selected radio button
+    radioButtonStyle(radioRef);
   });
 
   return (

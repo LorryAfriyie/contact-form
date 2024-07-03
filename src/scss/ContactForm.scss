@@ -65,8 +65,6 @@
 
         // Radio button styles
         input[type="radio"] {
-          margin-right: 1rem;
-
           display: none;
         }
 
@@ -83,8 +81,8 @@
 
         label:before {
           content: "";
-          height: 15px;
-          width: 15px;
+          height: 21px;
+          width: 20px;
           border: 1px solid hsl(186, 15%, 59%);
           border-radius: 50%;
           margin-right: 20px;
@@ -109,6 +107,11 @@
 
         .error {
           border: 1px solid hsl(0, 66%, 56%) !important;
+        }
+
+        .success {
+          border: 1px solid hsl(169, 82%, 27%);
+          background-color: hsl(148, 38%, 91%);
         }
       }
     }
