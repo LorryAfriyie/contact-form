@@ -40,7 +40,6 @@ Alternatively, you can use a tool like [FireShot](https://getfireshot.com/) to t
 
 Then crop/optimize/edit your image however you like, add it to your project, and update the file path in the image above.
 
-
 ### Links
 
 - Solution URL: [contact-form solution URL](https://github.com/LorryAfriyie/contact-form)
@@ -61,6 +60,8 @@ Then crop/optimize/edit your image however you like, add it to your project, and
 ### Useful resources
 
 - [Vanilla JavaScript form validation](https://www.youtube.com/watch?v=wzrHNx9WTFQ&t=1015s) - This YouTube video went through the process of being able to validate a form using vanilla JavaScript. This helped me with challenge, with the JavaScript solution that was presented, I had to tailor the code to suit a React.js solution.
+
+- [Custom radio button](https://www.youtube.com/watch?v=sSF0bXFUFGM&t=39s) - This YouTube video goes through the steps to be able to create a custom radio button, this video inspired the process of styling the radio buttons based on the challenge's requirement.
 
 ## Author
 
