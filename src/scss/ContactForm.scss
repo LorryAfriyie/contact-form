@@ -81,8 +81,8 @@
 
         label:before {
           content: "";
-          height: 21px;
-          width: 20px;
+          height: 19px;
+          width: 18px;
           border: 1px solid hsl(186, 15%, 59%);
           border-radius: 50%;
           margin-right: 20px;
@@ -90,6 +90,7 @@
 
         input[type="radio"]:checked + label::before {
           content: url("/images/icon-radio-selected.svg");
+          border: none;
         }
 
         // Radio button label styles

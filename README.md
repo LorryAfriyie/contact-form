@@ -32,18 +32,32 @@ Users should be able to:
 
 ### Screenshot
 
-![](./screenshot.jpg)
+- Below are screenshots of the website for both desktop and mobile:
 
-Add a screenshot of your solution. The easiest way to do this is to use Firefox to view your project, right-click the page and select "Take a Screenshot". You can choose either a full-height screenshot or a cropped one based on how long the page is. If it's very long, it might be best to crop it.
+### Desktop view:
 
-Alternatively, you can use a tool like [FireShot](https://getfireshot.com/) to take the screenshot. FireShot has a free option, so you don't need to purchase it.
+[Desktop Image 1](./public/images/screenshots/Desktop_view.jpeg)
 
-Then crop/optimize/edit your image however you like, add it to your project, and update the file path in the image above.
+[Desktop Image 2](./public/images/screenshots/Desktop_view_error_state.jpeg)
+
+[Desktop Image 3](./public/images/screenshots/Desktop_view_error_state_and_validation_error.jpeg)
+
+[Desktop Image 4](./public/images/screenshots/Desktop_view_form_complete_state.jpeg)
+
+### Mobile view:
+
+[Mobile Image 1](./public/images/screenshots/Mobile_view.jpeg)
+
+[Mobile Image 2](./public/images/screenshots/Mobile_view_error_state.jpeg)
+
+[Mobile Image 3](./public/images/screenshots/Mobile_view_error_state_and_validation_error.jpeg)
+
+[Mobile Image 4](./public/images/screenshots/Mobile_view_form_complete_state.jpeg)
 
 ### Links
 
 - Solution URL: [contact-form solution URL](https://github.com/LorryAfriyie/contact-form)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Live Site URL: [contact-form soultion Live URL](https://lorryafriyie.github.io/contact-form/)
 
 ## My process
 
@@ -65,4 +79,4 @@ Then crop/optimize/edit your image however you like, add it to your project, and
 
 ## Author
 
-- Frontend Mentor - [@yourusername](https://www.frontendmentor.io/profile/yourusername)
+- Frontend Mentor - [@LorryAfriyie](https://www.frontendmentor.io/profile/LorryAfriyie)
